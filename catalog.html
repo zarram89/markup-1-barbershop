@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Барбершоп «Бородинский» | Каталог</title>
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
@@ -122,18 +123,20 @@
         <button class="button" type="submit">Показать</button>
       </form>
 
-      <select class="select-control" aria-label="Сортировка">
-        <option value="popular">Сначала популярное</option>
-        <option value="cheap">Сначала дешёвое</option>
-        <option value="expensive">Сначала дорогое</option>
-      </select>
+      <div class="sorting-container">
+        <select class="select-control" aria-label="Сортировка">
+          <option value="popular">Сначала популярное</option>
+          <option value="cheap">Сначала дешёвое</option>
+          <option value="expensive">Сначала дорогое</option>
+        </select>
 
-      <a class="button button-light" href="#">
-        <span class="visually-hidden">Показать список</span>
-      </a>
-      <a class="button" href="#">
-        <span class="visually-hidden">Показать карточки</span>
-      </a>
+        <a class="button button-light" href="#">
+          <span class="visually-hidden">Показать список</span>
+        </a>
+        <a class="button" href="#">
+          <span class="visually-hidden">Показать карточки</span>
+        </a>
+      </div>
 
       <ul class="product-list">
         <li class="product-card">
