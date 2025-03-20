@@ -478,3 +478,19 @@ input[type="password"] {
 Но в большинстве системных шрифтов всё равно есть только два варианта толщины: обычный `normal` (400) и жирный `bold` (700). Поэтому и остальные значения свойства используются реже.
 
 В отличие от `text-align` свойство `vertical-align` задаётся самому элементу, а не содержащему его контейнеру:
+
+#### Закрепление фона
+
+```css
+background-attachment: fixed;
+```
+```css
+background: [bc] [bi] [br] [bp] [ba];
+/* Обозначения:
+[bc] — background-color
+[bi] — background-image
+[br] — background-repeat
+[bp] — background-position
+[ba] — background-attachment
+*/
+```
