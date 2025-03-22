@@ -107,13 +107,18 @@ background-color: #ffffff;
   background-repeat: no-repeat;
 }
 
+.navigation-logo {
+  width: 140px;
+  margin-right: 100px;
+}
+
 .main-inner {
   color: #242424;
   background-color: #fbf7f4;
   background-image: url("../images/bg-noisy.png");
 }
 
-.page-containter {
+.page-container {
   width: 940px;
   margin: 0 auto;
 }
@@ -312,6 +317,19 @@ background-color: #ffffff;
 
 .breadcrumbs-link {
   color: inherit;
+}
+
+.catalog-products {
+  display: flex;
+}
+
+.catalog-filter {
+  width: 220px;
+  margin-right: 20px;
+}
+
+.catalog-right-column {
+  width: 700px;
 }
 
 .catalog-filter-title {
