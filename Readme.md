@@ -729,3 +729,55 @@ body {
 - Сбрасывайте отступ у последнего элемента в группе.
 - Не задавайте отступы блокам, которые можно переиспользовать.
 
+#### Сортировка элементов на CSS
+
+Интересного эффекта можно достичь, если скомбинировать флексбокс с селектором :checked. Подробно трюк с :checked ~ разбирается в задании части «Селекторы. Тонкости».
+
+Приём заключается в следующем: с помощью селектора по выделению чекбокса можно управлять порядком флекс-элементов, изменяя направление главной оси с помощью flex-direction. Лучше всего эффект работает, когда направление главной оси меняется с «сверху вниз» на «снизу вверх».
+
+При этом флекс-контейнер должен находиться в разметке на одном уровне с чекбоксом.
+
+Таким образом реализуется сортировка на CSS, без использования JavaScript.
+```html
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Сортировка элементов на CSS</title>
+    <link href="" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body class="subtle">
+    <label for="sort">Сортировать по вкусу</label>
+    <input type="checkbox" id="sort" name="sort" class="input-sort">
+    <ol class="sort-list">
+      <li><a href="/">Мясо</a></li>
+      <li><a href="/">Рыба</a></li>
+      <li><a href="/">Сметана</a></li>
+      <li><a href="/">Молоко</a></li>
+      <li><a href="/">Сыр</a></li>
+    </ol>
+  </body>
+</html>
+```
+```css
+.sort-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-sort:checked ~ .sort-list {
+  flex-direction: column-reverse;
+}
+```
+
+или прятать по чекбоксу
+```css
+.sort-list {
+  display: non;
+}
+
+.input-sort:checked ~ .sort-list {
+  display: block;
+}
+```
