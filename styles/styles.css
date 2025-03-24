@@ -35,15 +35,26 @@ html {
 }
 
 body {
-  margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  margin: 0;
   font-family: "PT Sans", Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   color: #242424;
   background-color: #fbf7f4;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .button {
@@ -58,9 +69,10 @@ body {
   text-transform: uppercase;
 }
 
-.button-light {
+.button-light,
+.button-current {
   color: #242424;
-background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .page-header {
@@ -75,17 +87,17 @@ background-color: #ffffff;
 }
 
 .navigation-list {
+  display: flex;
+  flex-wrap: wrap;
   width: 430px;
   margin: 0;
   padding: 0;
-}
-
-.navigation-user {
-  width: 250px;
-  margin-left: auto;
+  list-style-type: none;
 }
 
 .navigation-link {
+  display: block;
+  padding: 24px 20px;
   font-family: "PT Sans Narrow", Arial, sans-serif;
   line-height: 22px;
   font-weight: 700;
@@ -95,8 +107,27 @@ background-color: #ffffff;
   text-transform: uppercase;
 }
 
+.navigation-logo {
+  display: flex;
+  align-items: center;
+  width: 140px;
+  margin-right: 100px;
+}
+
+.navigation-user {
+  width: 250px;
+  margin-left: auto;
+}
+
+.navigation-user .navigation-link {
+  min-width: 16px;
+  min-height: 22px;
+}
+
 .main-container {
   flex-grow: 1;
+  padding-top: 64px;
+  padding-bottom: 60px;
 }
 
 .main-index {
@@ -107,12 +138,8 @@ background-color: #ffffff;
   background-repeat: no-repeat;
 }
 
-.navigation-logo {
-  width: 140px;
-  margin-right: 100px;
-}
-
 .main-inner {
+  padding-top: 40px;
   color: #242424;
   background-color: #fbf7f4;
   background-image: url("../images/bg-noisy.png");
@@ -126,6 +153,11 @@ background-color: #ffffff;
 .logo {
   display: block;
   margin: 0 auto;
+  margin-bottom: 64px;
+}
+
+.advantages {
+  margin-bottom: 58px;
 }
 
 .advantages-list {
@@ -133,7 +165,9 @@ background-color: #ffffff;
   justify-content: space-between;
   margin: 0;
   padding: 0;
+  list-style-type: none;
   text-align: center;
+  color: #ffffff;
 }
 
 .advantages-item {
@@ -141,19 +175,30 @@ background-color: #ffffff;
 }
 
 .advantages-title {
+  margin: 0;
+  margin-bottom: 56px;
   font-family: "PT Sans Narrow", Arial, sans-serif;
   font-size: 32px;
   line-height: 35px;
   text-transform: uppercase;
 }
 
+.advantages-description {
+  margin: 0;
+}
+
 .index-columns {
   display: flex;
   justify-content: space-between;
-  padding: 0 40px;
+  margin-bottom: 32px;
+  padding: 40px;
   color: #242424;
   background-color: #fbf7f4;
   background-image: url("../images/bg-noisy.png");
+}
+
+.index-columns:last-child {
+  margin-bottom: 0;
 }
 
 .services {
@@ -162,15 +207,24 @@ background-color: #ffffff;
 }
 
 .services-title {
+  margin: 0;
+  margin-bottom: 28px;
   font-size: 32px;
   line-height: 35px;
   font-weight: 700;
 }
 
 .services-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   font-size: 20px;
   line-height: 28px;
   font-weight: 700;
+}
+
+.services-item {
+  margin-bottom: 22px;
 }
 
 .services-price {
@@ -182,6 +236,8 @@ background-color: #ffffff;
 }
 
 .gallery-title {
+  margin-top: 0;
+  margin-bottom: 28px;
   font-size: 32px;
   line-height: 35px;
   font-weight: 700;
@@ -189,11 +245,13 @@ background-color: #ffffff;
 }
 
 .contacts {
-  width: 430px;
+  width: 350px;
   font-weight: 700;
 }
 
 .contacts-title {
+  margin: 0;
+  margin-bottom: 28px;
   font-size: 32px;
   line-height: 35px;
   font-weight: 700;
@@ -216,6 +274,8 @@ background-color: #ffffff;
 }
 
 .appointment-title {
+  margin: 0;
+  margin-bottom: 28px;
   font-size: 32px;
   line-height: 35px;
   font-weight: 700;
@@ -245,16 +305,7 @@ background-color: #ffffff;
   display: flex;
   width: 940px;
   margin: 0 auto;
-}
-
-.footer-contacts {
-  width: 200px;
-  margin-right: 130px;
-}
-
-.footer-social {
-  margin-left: auto;
-  width: 190px;
+  padding: 40px 0;
 }
 
 .page-footer a {
@@ -267,12 +318,19 @@ background-color: #ffffff;
 }
 
 .page-footer-title {
+  margin-top: 0;
+  margin-bottom: 14px;
   font-family: "PT Sans Narrow", sans-serif;
   font-size: 20px;
   line-height: 28px;
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
+}
+
+.footer-contacts {
+  width: 200px;
+  margin-right: 130px;
 }
 
 .footer-contacts-address {
@@ -305,17 +363,49 @@ background-color: #ffffff;
   text-transform: uppercase;
 }
 
+.footer-social {
+  margin-left: auto;
+  width: 190px;
+}
+
+.footer-social-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.footer-social-item {
+  width: 56px;
+  height: 44px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.footer-social-item:nth-child(3n) {
+  margin-right: 0;
+}
+
 .inner-header-title {
+  margin: 0;
+  margin-bottom: 16px;
   font-size: 32px;
   line-height: 35px;
   text-transform: uppercase;
 }
 
 .breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   color: #242424;
 }
 
 .breadcrumbs-link {
+  margin-right: 32px;
   color: inherit;
 }
 
@@ -345,8 +435,22 @@ background-color: #ffffff;
 }
 
 .sorting-container {
+  display: flex;
+  margin-bottom: 16px;
+  padding: 16px;
   color: #000000;
   background-color: #ffffff;
+}
+
+.sorting-container .button {
+  width: 56px;
+  height: 44px;
+}
+
+.product-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 .product-card {
@@ -370,16 +474,42 @@ background-color: #ffffff;
   text-transform: uppercase;
 }
 
-.pagination {
+.pagination-container {
+  display: flex;
+  padding: 16px;
   background-color: #ffffff;
 }
 
+.pagination {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.pagination-item:not(:last-child) {
+  margin-right: 8px;
+}
+
 .pagination-link {
+  display: block;
+  box-sizing: border-box;
+  width: 50px;
+  height: 44px;
+  padding: 14px 20px;
+  line-height: 16px;
+  font-weight: 700;
   color: #ffffff;
   background-color: #000000;
   text-decoration: none;
-  line-height: 16px;
-  font-weight: 700;
+}
+
+.pagination-clear {
+  background-color: transparent;
+}
+
+.pagination-show-more {
+  margin-left: auto;
 }
 
 .pagination-current {
